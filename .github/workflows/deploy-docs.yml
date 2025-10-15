@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [ main, master ]
 
+# Add permissions at the workflow level
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -34,7 +40,7 @@ jobs:
       run: mkdocs build --site-dir test
       
     - name: Upload test build
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: test-docs
         path: test/
@@ -42,6 +48,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    
+    # You can also add permissions at the job level (optional)
+    permissions:
+      pages: write
+      id-token: write
+    
+    # Add environment reference for GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
     - name: Checkout repository
