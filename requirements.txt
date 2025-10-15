@@ -1,0 +1,7 @@
+# Paquetes base y extensiones
+mkdocs-material == 9.*
+neoteroi-mkdocs == 1.1.*
+
+# Plugins de funcionalidad
+mkdocs-git-revision-date-localized-plugin == 1.4.*
+pymdown-extensions == 10.*

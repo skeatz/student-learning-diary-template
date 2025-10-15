@@ -1,0 +1,79 @@
+# Replace the text below to customize your site
+site_name: Your Name - Fab Learning Academy
+site_description: Fab Learning Academy documentation site of Your name
+site_author: Your name
+copyright: Copyright 2024 Your Name - Creative Commons Attribution Non Commercial
+
+extra:
+  # For social icons see https://squidfunk.github.io/mkdocs-material/setup/adding-social-links/
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tu-usuario
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/tu-perfil
+    - icon: fontawesome/solid/envelope
+      link: mailto:tu-email@example.com
+
+theme:
+  name: material
+  palette:
+    # Esquema de colores claro
+    - scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    # Esquema de colores oscuro
+    - scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+  font:
+    # See available fonts at https://fonts.google.com/
+    text: Ubuntu
+    code: Ubuntu Mono
+  icon:
+    logo: material/school
+    repo: fontawesome/brands/gitlab
+  favicon: images/favicon.svg
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - toc.integrate
+    - content.code.copy
+
+# CSS 
+extra_css:
+  - stylesheets/neoteroi-mkdocs.css
+  - stylesheets/custom-cards.css
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+      enabled: !ENV [ENABLED_GIT_REVISION_DATE, False]
+
+
+markdown_extensions:
+  - extra
+  - smarty
+  - admonition
+  - md_in_html    # Permite usar Markdown dentro de bloques HTML/div
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences
+  - neoteroi.cards
+
+# Do not change these lines
+site_url: http://academany.fabcloud.io/fab-learning-academy/student-template-diary/
